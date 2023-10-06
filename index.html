@@ -11,17 +11,27 @@
     <!-- cstm css -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header></header>
+<body class="mx-12">
+    <header class="bg-[#1090d81a] h-32 rounded-lg my-12 flex-1 flex-col lg:flex-col">
+            <div class="flex items-center mx-10">
+                <div class="m-4">
+                    <h1 class="text-[#111111cc] font-bold text-5xl">Interactive</h1>
+                    <p class="text-[#11111199] text-2xl font-medium tracking-widest">Geometry Genius</p>
+                </div>
+                <div class="ml-auto">
+                    <button class="btn btn-info   bg-[#1090D8] text-white">Blog</button> 
+                </div>
+            </div>
+    </header>
 
-    <main>
+    <main class="mb-10">
         <!-- container -->
         <div class="flex flex-col lg:flex-row">
             <!-- shape container -->
             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- triangle card -->
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure><img src="images/triangle.png" alt="triangle.png" /></figure>
+                <div class="card w-96 bg-base-200 shadow-2xl">
+                    <figure><img class="mx-16 my-12"  src="images/triangle.png" alt="triangle.png"/></figure>
                     <div class="card-body">
                         <h2 class="card-title">Triangle</h2>
                         <p>Area (A) = 0.5 x  b x h</p>
@@ -40,8 +50,8 @@
 
 
                 <!-- Rectangle card -->
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure><img src="images/rectangle.png" alt="rectangle.png" /></figure>
+                <div class="card w-96 bg-base-200 shadow-2xl">
+                    <figure><img class="mx-16 my-12" src="images/rectangle.png" alt="rectangle.png" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Rectangle</h2>
                         <p>Area (A) = w x l</p>
@@ -60,8 +70,8 @@
 
 
                 <!-- Parallelogram card -->
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure><img src="images/parallelogram.png" alt="parallelogram.png"/></figure>
+                <div class="card w-96 bg-base-200 shadow-2xl">
+                    <figure><img class="mx-16 my-12" src="images/parallelogram.png" alt="parallelogram.png"/></figure>
                     <div class="card-body">
                         <h2 class="card-title">Parallelogram</h2>
                         <p>Area (A) = b x h</p>
@@ -79,11 +89,11 @@
                 </div>
 
                 <!-- Rhombusm card -->
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure><img src="images/rhombus.png" alt="rhombus.png"/></figure>
+                <div class="card w-96 bg-base-200 shadow-2xl">
+                    <figure><img class="mx-16 my-12" src="images/rhombus.png" alt="rhombus.png"/></figure>
                     <div class="card-body">
                         <h2 class="card-title">Rhombus</h2>
-                        <p>Area (A) = b x h</p>
+                        <p>Area (A) =0.5 x d<sub>1</sub>  x d<sub>2</sub></p>
                         <p>
                             <input type="text" class="border w-24 px-2 text-xl bg-gray-200"  name="" id="rhombus-base" placeholder="base">
                             <span class="ml-2 mr-4">cm</span>
@@ -92,33 +102,33 @@
                         </p>
                         <p class="text-2xl">Area: <span id="rhombus-area">0</span> cm<sup>2</sup></p>
                         <div class="card-actions ">
-                            <button onclick="calcuateParallelogramArea()"  class="btn btn-primary bg-[#1090D8] w-full border-0">Calculate</button>
+                            <button onclick="calcuateRhombusmArea()" class="btn btn-primary bg-[#1090D8] w-full border-0">Calculate</button>
                         </div>
                     </div>
                 </div>
 
                     <!-- Pentagon card -->
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure><img src="images/rhombus.png" alt="rhombus.png"/></figure>
+                <div class="card w-96 bg-base-200 shadow-2xl">
+                    <figure><img class="mx-16 my-12" src="images/rhombus.png" alt="rhombus.png"/></figure>
                     <div class="card-body">
                         <h2 class="card-title">Pentagon</h2>
-                        <p>Area (A) = b x h</p>
+                        <p>Area (A) = 0.5 x p x b</p>
                         <p>
-                            <input type="text" class="border w-24 px-2 text-xl bg-gray-200"  name="" id="rhombus-base" placeholder="base">
+                            <input type="text" class="border w-24 px-2 text-xl bg-gray-200"  name="" id="pentagon-perimeter" placeholder="perimeter">
                             <span class="ml-2 mr-4">cm</span>
-                            <input type="text" class="border w-24 px-2 text-xl bg-gray-200"  name="" id="rhombus-height" placeholder="height">
+                            <input type="text" class="border w-24 px-2 text-xl bg-gray-200"  name="" id="pentagon-base" placeholder="base">
                             <span class="ml-2">cm</span>
                         </p>
-                        <p class="text-2xl">Area: <span id="rhombus-area">0</span> cm<sup>2</sup></p>
+                        <p class="text-2xl">Area: <span id="pentagons-area">0</span> cm<sup>2</sup></p>
                         <div class="card-actions ">
-                            <button onclick="calcuateParallelogramArea()"  class="btn btn-primary bg-[#1090D8] w-full border-0">Calculate</button>
+                            <button onclick="calcuatepentagonArea()"  class="btn btn-primary bg-[#1090D8] w-full border-0">Calculate</button>
                         </div>
                     </div>
                 </div>
 
                     <!-- Ellipse card -->
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure><img src="images/ellipse.png" alt="ellipse.png"/></figure>
+                <div class="card w-96 bg-base-200 shadow-2xl">
+                    <figure><img class="mx-16 my-12" src="images/ellipse.png" alt="ellipse.png"/></figure>
                     <div class="card-body">
                         <h2 class="card-title">Ellipse</h2>
                         <p>Area (A) = π ab</p>
@@ -136,8 +146,8 @@
                 </div>
             </div>
             <!-- area calcultor -->
-            <div class="w-[400px]">
-                <div class="text-4xl">Area Calculator</div>
+            <div class="w-[400px] border rounded-lg text-center mt-4 bg-base-200 shadow-2xl">
+                <div class="text-4xl font-bold mt-4">Area Calculator</div>
                 <div id="calculation-entry"></div>
             </div>
         </div>

@@ -1,3 +1,4 @@
+// ****************triangle area start********************
 function calcuateTriangleArea(){
     // get triangle base value
     const baseField = document.getElementById('triangle-base')
@@ -9,49 +10,46 @@ function calcuateTriangleArea(){
     const heightValueText = heightfield.value;
     const height = parseFloat(heightValueText);
 
+
+    // validate
+    if(isNaN(base) || isNaN(height)){
+        alert('please insert number');
+        return
+    }
+
     // base height value calculate
-    const area = 0.5 * base * height;
+    const areas = 0.5 * base * height;
     
 
     // show triangle  area 
     const areaSpan = document.getElementById('triangle-area');
-    areaSpan.innerText = area;
+    areaSpan.innerText = areas;
+
+     // add to calculation entry
+        addToCalculationEntry('triangle', areas);
 }
+//******************************** */ triangle area End********************************
 
 
-// function calcuateRectangleArea(){
-//     // get rectangle width
-//     const widthField = document.getElementById('rectangle-width');
-//     const widthValueText = widthField.value;
-//     const width = parseFloat(widthValueText);
-    
-//     // get rectangle length
-//     const lengthField = document.getElementById('rectangle-length');
-//     const lengthValueText = lengthField.value;
-//     const length = parseFloat(lengthValueText);
-    
-//     // calculate area
-//     const area = width * length;
+// ******************************* Rectangle area start *******************************
+function calcuateRectangleArea(){
+    const rectangleWidth = getInputValue('rectangle-width');
+    const rectangleLength = getInputValue('rectangle-length');
 
-//     // show retangle area
-//     const rectangleAreaSpan = document.getElementById('rectangle-area');
-//     rectangleAreaSpan.innerText = area;
-// }
+    if(isNaN(rectangleWidth) || isNaN(rectangleLength)){
+        alert('please insert number');
+        return
+    }
 
-// reuseable function code
+    const area = rectangleWidth * rectangleLength;
 
+    setElemnetInnerText('rectangle-area', area);
 
-function calcuateEllipseArea(){
-    const majorRadius = getInputValue('ellipse-major-radius');
-    const minorRadius = getInputValue('ellipse-minor-redius');
-
-    const area = 3.14 * majorRadius * minorRadius;
-    const areaTwoDecimal = area.toFixed(2);
-    setElemnetInnerText('ellipse-area', areaTwoDecimal);
-
-    addToCalculationEntry('Ellipse', area);
+    addToCalculationEntry('Rectangle', area);
 }
+// ******************************* Rectangle area End *********************************
 
+//************************** */ Parallelogram area start ******************************
 function calcuateParallelogramArea(){
     const base = getInputValue('parallelogra-base');
     const height = getInputValue('parallelogra-height');
@@ -59,7 +57,7 @@ function calcuateParallelogramArea(){
     // validate
     if(isNaN(base) || isNaN(height)){
         alert('please insert number');
-        return
+        return;
     }
 
     const area = base * height;
@@ -68,15 +66,68 @@ function calcuateParallelogramArea(){
     // add to calculation entry
     addToCalculationEntry('parallelogram', area);
 }
+//************************** */ Parallelogram area end ******************************
 
 
-function calcuateRectangleArea(){
-    const width = getInputValue('rectangle-width');
-    const length = getInputValue('rectangle-length');
+// ************************** Rhombus area start**********************************
+function calcuateRhombusmArea(){
+    const base = getInputValue('rhombus-base');
+    const height = getInputValue('rhombus-height');
 
-    const area = width * length;
-    setElemnetInnerText('rectangle-area', area);
+    if(isNaN(base) || isNaN(height)){
+        alert('please insert number');
+        return;
+    }
+
+    const area = 0.5 * base * height;
+
+    setElemnetInnerText('rhombus-area', area);
+
+    addToCalculationEntry('rhombus',area);
 }
+// **************************Rhombus area End ***********************************
+
+// **************************Pentagon area start ********************************
+function calcuatepentagonArea(){
+    const perimeter = getInputValue('pentagon-perimeter');
+    const base = getInputValue('pentagon-base');
+
+    if(isNaN(perimeter) || isNaN(base)){
+        alert('please insert number');
+        return;
+    }
+
+    const area = 0.5 * perimeter * base;
+
+    setElemnetInnerText('pentagons-area', area);
+
+    addToCalculationEntry('pentagons', area);
+}
+// **************************Pentagon area end **********************************
+
+// **************************Ellipse area start *********************************
+function calcuateEllipseArea(){
+    const major = getInputValue('ellipse-major-radius');
+    const minor = getInputValue('ellipse-minor-redius');
+
+    if(isNaN(major) || isNaN(minor)){
+        alert('please insert number');
+        return;
+    }
+const area = 3.14 * major * minor;
+
+setElemnetInnerText('ellipse-area', area);
+
+addToCalculationEntry('ellipse', area);
+}
+// **************************Ellipse area end **********************************
+
+
+
+
+
+
+
 
 
 
@@ -100,7 +151,37 @@ function addToCalculationEntry(areaType, area){
     const calculationEntry = document.getElementById('calculation-entry');
     const count = calculationEntry.childElementCount;
     const p = document.createElement('p');
-    p.classList.add('my-4');
-    p.innerHTML = `${count + 1}. ${areaType} ${area} cm<sup>2</sup> <button class="btn btn-success">Convert</button>`;
+    p.classList.add('my-5');
+    p.innerHTML = `${count + 1}. ${areaType} ${area} cm<sup>2</sup> <button class="btn btn-success btn-sm text-white">Convert</button>`;
     calculationEntry.appendChild(p);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// function calcuateRectangleArea(){
+//     // get rectangle width
+//     const widthField = document.getElementById('rectangle-width');
+//     const widthValueText = widthField.value;
+//     const width = parseFloat(widthValueText);
+    
+//     // get rectangle length
+//     const lengthField = document.getElementById('rectangle-length');
+//     const lengthValueText = lengthField.value;
+//     const length = parseFloat(lengthValueText);
+    
+//     // calculate area
+//     const area = width * length;
+
+//     // show retangle area
+//     const rectangleAreaSpan = document.getElementById('rectangle-area');
+//     rectangleAreaSpan.innerText = area;
+// }
